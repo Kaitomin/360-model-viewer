@@ -1,0 +1,22 @@
+/* .container {
+  position: inherit;
+  width: 980px;
+  margin: 0 auto;
+}
+#main {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border: 1px solid black;
+} */
+/* #main img {
+  width: inherit;
+} */
+#range {
+  position: absolute;
+  width: 100%;
+  top: 5%;
+  height: 200px;
+  z-index: 2;
+  cursor: grabbing;
+}
