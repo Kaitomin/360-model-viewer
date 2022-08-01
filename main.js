@@ -1,11 +1,35 @@
 const inputRange = document.querySelector('#range')
-const main = document.querySelector('#main')
+const img360 = document.querySelector('#main img')
+const prevButton = document.querySelector('#prev-img')
+const nextButton = document.querySelector('#next-img')
 
-function work() {
+function display360() {
   let rangeValue = inputRange.value
-  main.innerHTML = `<img src="products/chair/${rangeValue}.jpg" />`
+  img360.src = `products/chair/${rangeValue}.jpg`
+}
+
+function prevImg() {
+  let rangeValue = inputRange.value
+
+  if (rangeValue <= 1) return 
+
+  img360.src = `products/chair/${--rangeValue}.jpg`
+  inputRange.value = --inputRange.value
+}
+function nextImg() {
+  let rangeValue = inputRange.value
+
+  if (rangeValue >= 40) return 
+
+  img360.src = `products/chair/${++rangeValue}.jpg`
+  inputRange.value = ++inputRange.value
 }
 
 inputRange.addEventListener('input', () => {
-  work()
+  display360()
 })
+inputRange.addEventListener('mouseup', (e) => {
+  inputRange.value = e.target.value
+})
+prevButton.addEventListener('click', prevImg)
+nextButton.addEventListener('click', nextImg)

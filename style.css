@@ -1,22 +1,52 @@
-/* .container {
+.container {
   position: inherit;
-  width: 980px;
+  width: 500px;
   margin: 0 auto;
 }
 #main {
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 100%;
   height: 300px;
-  border: 1px solid black;
-} */
-/* #main img {
-  width: inherit;
-} */
+  box-shadow: 0px 0px 6px #0000004f;
+}
+#main img {
+  width: auto;
+  height: 100%;
+}
+/* Rotation input */
 #range {
   position: absolute;
   width: 100%;
-  top: 5%;
-  height: 200px;
-  z-index: 2;
-  cursor: grabbing;
+  top: 0;
+  left: 0;
+  height: inherit;
+  cursor: url('./img/360-cursor.png'), auto;
+}
+/* Prev - Next icons */
+.fa-solid {
+  position: absolute;
+  top: 45%;
+  color: #00c4ff;
+}
+.fa-solid:hover {
+  cursor: pointer
+}
+.fa-solid:hover {
+  color: #00c4ff91;
+}
+.fa-circle-left {
+  left: 25px;
+  transition: left 0.1s ease-in-out;
+}
+.fa-circle-left:hover {
+  left: 20px;
+}
+.fa-circle-right {
+  right: 25px;
+  transition: right 0.1s ease-in-out;
+}
+.fa-circle-right:hover {
+  right: 20px;
 }
