@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 .container {
   position: inherit;
   width: 500px;
@@ -21,8 +25,10 @@
   width: 100%;
   top: 0;
   left: 0;
-  height: inherit;
+  /* height: inherit; */
+  height: auto;
   cursor: url('./img/360-cursor.png'), auto;
+  /* display: none; */
 }
 /* Prev - Next icons */
 .fa-solid {
@@ -49,4 +55,23 @@
 }
 .fa-circle-right:hover {
   right: 20px;
+}
+.products-container {
+  display: flex;
+}
+.products-container img {
+  width: auto;
+  height: 180px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding: 0.5em 0;
+  background: #dfdfdf;
+}
+footer a {
+  color: black;
+  text-decoration: none;
 }

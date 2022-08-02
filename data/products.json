@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "title": "xl-001",
+      "category": "chair",
+      "url": "img/products/",
+      "price": "45.69"
+    },
+    {
+      "title": "xl-019",
+      "category": "chair",
+      "url": "img/products/",
+      "price": "51.42"
+    }
+  ]
+}
