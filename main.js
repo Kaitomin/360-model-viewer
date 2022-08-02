@@ -64,15 +64,28 @@ const fetchCurrentProduct = (name) => {
 }
 
 const setCurrentProduct = (e) => {
-  const img = document.querySelectorAll('.product img')
+  const products = document.querySelectorAll('.product')
 
-  Array.from(img).forEach(p => {
-    if (e.target.dataset.name === p.dataset.name) {
-      p.parentElement.classList.add('active')
-    } else {
-      p.parentElement.classList.remove('active')
+  Array.from(products).forEach(p => {
+    switch(e.target.tagName) {
+      case 'DIV':
+        if (e.target.children[0].dataset.name === p.children[0].dataset.name ) {
+          p.classList.add('active')
+        } else {
+          p.classList.remove('active')
+        }
+        break;
+      
+      case 'IMG':
+        if (e.target.dataset.name === p.children[0].dataset.name) {
+          p.classList.add('active')
+        } else {
+          p.classList.remove('active')
+        }
+        break;
     }
   })
+
   preloadCurrentProductImg()
   img360.src = `${currentActiveProduct.url}/1.jpg`
 }

@@ -1,20 +1,30 @@
 body {
-  margin: 0;
+  margin: 5em 0;
   padding: 0;
   font-family: 'Source Sans Pro', sans-serif;
 }
+h2 {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 0.5em 0;
+  text-transform: uppercase;
+}
 .container {
   position: inherit;
-  width: 500px;
-  margin: 5em auto 0 auto;
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 /* 360 view */
 #main {
   display: flex;
   justify-content: center;
   position: relative;
-  width: 100%;
-  height: 300px;
+  width: 70%;
+  height: 500px;
   box-shadow: 0px 0px 6px #0000004f;
 }
 #main img {
@@ -27,10 +37,10 @@ body {
   width: 100%;
   top: 0;
   left: 0;
-  /* height: inherit; */
-  height: auto;
+  height: inherit;
+  /* height: auto; */
   cursor: url('./img/360-cursor.png'), auto;
-  /* display: none; */
+  opacity: 0;
 }
 /* Prev - Next icons */
 .fa-solid {
@@ -45,18 +55,18 @@ body {
   color: #00c4ff91;
 }
 .fa-circle-left {
-  left: -70px;
+  left: -25px;
   transition: left 0.1s ease-in-out;
 }
 .fa-circle-left:hover {
-  left: -75px;
+  left: -30px;
 }
 .fa-circle-right {
-  right: -70px;
+  right: -25px;
   transition: right 0.1s ease-in-out;
 }
 .fa-circle-right:hover {
-  right: -75px;
+  right: -30px;
 }
 /* Products */
 .products-container {
@@ -66,10 +76,22 @@ body {
 .products {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
+  width: 285px;
+  gap: 10px 10px;
 }
 .products img {
   width: auto;
   height: 180px;
+}
+.product {
+  justify-content: center;
+  max-width: inherit;
+  display: flex;
+  box-shadow: 0 0 1px #808080c4;
+}
+.product.active {
+  box-shadow: 0 0 3px #00f3ff;
 }
 footer {
   position: fixed;
@@ -82,4 +104,29 @@ footer {
 footer a {
   color: black;
   text-decoration: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 1268px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 50px 0;
+  }
+  #main {
+    width: 90%;
+    align-items: center;
+  }
+  #main img {
+    height: 75%;
+  }
+  .products {
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .product {
+    width: 275px;
+  }
 }
