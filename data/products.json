@@ -1,16 +1,25 @@
 {
   "products": [
     {
-      "title": "xl-001",
+      "title": "ch-001",
       "category": "chair",
-      "url": "img/products/",
-      "price": "45.69"
+      "url": "img/products/chair/ch-001",
+      "price": "78.69",
+      "length": "40"
     },
     {
-      "title": "xl-019",
-      "category": "chair",
-      "url": "img/products/",
-      "price": "51.42"
+      "title": "jw-001",
+      "category": "jewelry",
+      "url": "img/products/jewelry/jw-001",
+      "price": "98.42",
+      "length": "60"
+    },
+    {
+      "title": "t-1000",
+      "category": "tool",
+      "url": "img/products/tool/t-1000",
+      "price": "144.99",
+      "length": "40"
     }
   ]
 }

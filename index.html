@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   
   <title>360 model viewer</title>
@@ -12,7 +13,8 @@
 <body>
   <div class="container">
     <div id="main">
-      <img src="img/products/chair/1.jpg" alt="product icon" />
+      <!-- <img src="img/products/chair/1.jpg" alt="product icon" /> -->
+      <img src="" alt="product icon" />
       <!-- Previous img -->
       <i id="prev-img" class="fa-solid fa-circle-left fa-3x"></i>
       <!-- Next img -->
@@ -20,12 +22,19 @@
       <!-- Rotation input -->
       <input type="range" id="range" value="1" min="1" max="40">
     </div>
+    
     <div class="products-container">
-      <div class="product active">
-        <img src="img/products/chair/1.jpg" alt="" data-name="xl-001" />
-      </div>
-      <div class="product">
-        <img src="img/products/chair/20.jpg" alt="" data-name="xl-019" />
+      <h2>Select a product</h2>
+      <div class="products">
+        <div class="product active">
+          <img src="img/products/chair/ch-001/1.jpg" alt="" data-name="ch-001" />
+        </div>
+        <div class="product">
+          <img src="img/products/jewelry/jw-001/1.jpg" alt="" data-name="jw-001" />
+        </div>
+        <div class="product">
+          <img src="img/products/tool/t-1000/1.jpg" alt="" data-name="t-1000" />
+        </div>
       </div>
     </div>
   </div>

@@ -7,10 +7,11 @@ const nextButton = document.querySelector('#next-img')
 
 const currentProductImg = []
 let productsList = ''
+let currentActiveProduct = []
 
 const display360 = () => {
   let rangeValue = inputRange.value
-  img360.src = `img/products/chair/${rangeValue}.jpg`
+  img360.src = `${currentActiveProduct.url}/${rangeValue}.jpg`
 }
 
 const prevImg = () => {
@@ -18,7 +19,7 @@ const prevImg = () => {
 
   if (rangeValue <= 1) return 
 
-  img360.src = `img/products/chair/${--rangeValue}.jpg`
+  img360.src = `${currentActiveProduct.url}/${--rangeValue}.jpg`
   inputRange.value = --inputRange.value
 }
 
@@ -27,39 +28,65 @@ const nextImg = () => {
 
   if (rangeValue >= 40) return 
 
-  img360.src = `img/products/chair/${++rangeValue}.jpg`
+  img360.src = `${currentActiveProduct.url}/${++rangeValue}.jpg`
   inputRange.value = ++inputRange.value
 }
 
 // Preload all images of a product 
 const preloadCurrentProductImg = () => {
-  for (let i = 1; i <= 40; i++) {
+  const activeProduct = document.querySelector('.product.active')
+
+  currentActiveProduct = fetchCurrentProduct(activeProduct.children[0].dataset.name)
+  currentProductImg.length = 0
+
+  for (let i = 1; i <= currentActiveProduct.length; i++) {
     let img = new Image()
-    img.src = `img/products/chair/${i}.jpg`
+    img.src = `${currentActiveProduct.url}/${i}.jpg`
     currentProductImg.push(img)
   }
+
+  img360.src = `${currentActiveProduct.url}/1.jpg`
 }
 
-const fetchProducts = (name) => {
+// Get all products
+const fetchProducts = () => {
   fetch('./data/products.json')
     .then(res => res.json())
-    .then(data => productsList = data.products)
+    .then(data => {
+      productsList = data.products
+      preloadCurrentProductImg()
+    })
 }
 
-window.addEventListener('load', () => {
-  const products = document.querySelectorAll('.products-container div')
+// Get current active product
+const fetchCurrentProduct = (name) => {
+  return productsList.filter(p => p.title === name)[0]
+}
+
+const setCurrentProduct = (e) => {
+  const img = document.querySelectorAll('.product img')
+
+  Array.from(img).forEach(p => {
+    if (e.target.dataset.name === p.dataset.name) {
+      p.parentElement.classList.add('active')
+    } else {
+      p.parentElement.classList.remove('active')
+    }
+  })
+  preloadCurrentProductImg()
+  img360.src = `${currentActiveProduct.url}/1.jpg`
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const productContainer = document.querySelector('.products-container')
+
+  fetchProducts()
 
   inputRange.addEventListener('input', display360)
   inputRange.addEventListener('mouseup', e => inputRange.value = e.target.value)
   prevButton.addEventListener('click', prevImg)
   nextButton.addEventListener('click', nextImg)
-
-  console.log(products)
-  Array.from(products).forEach(p => p.addEventListener('click', (e) => {
-        
-  }))
+  productContainer.addEventListener('click', setCurrentProduct)
   
-  fetchProducts()
-  preloadCurrentProductImg()
 })
 
