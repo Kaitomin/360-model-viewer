@@ -47,6 +47,7 @@ h2 {
   position: absolute;
   top: 45%;
   color: #00c4ff;
+  z-index: 999;
 }
 .fa-solid:hover {
   cursor: pointer
